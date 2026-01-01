@@ -10,7 +10,10 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('pets/', pets_view, name='pets'),
     path('pets/add-pet', add_pet_view, name='add-pet'),
-    path('pets/<int:pet_id>/', edit_pet_view, name='edit-pet'),
+    path('pets/edit-pet/<int:pet_id>/', edit_pet_view, name='edit-pet'),
+    path('pets/delete-pet/<int:pet_id>/', delete_pet_view, name='delete_pet'),
+    path('vet-visits/', vet_visits_view, name='vet-visits'),
+    path('vet-visits/add-visit', vet_visit_add_view, name='add-visit'),
 
     # path('search/', search_view, name='search'),
 ]

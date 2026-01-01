@@ -1,0 +1,18 @@
+body{
+    background-image:url('/static/images/paws.png');
+    background-size:cover;
+    background-attachment: fixed;
+}
+
+form{
+    background-color: aliceblue;
+    width:40vh; 
+    height:40vh;
+    padding: 5%;
+    border-radius: 40px;
+    box-shadow: 5px 5px 15px grey;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-around;
+}

@@ -50,7 +50,6 @@ def pets_view(request:HttpRequest)->HttpResponse:
     context = {
         'pets': pets,
     }
-    print(pets)
     return render(request, 'pets.html', context)
 
 
@@ -70,13 +69,35 @@ def add_pet_view(request:HttpRequest)->HttpResponse:
 def edit_pet_view(request:HttpRequest, pet_id:int)->HttpResponse:
     pet = get_object_or_404(Pet, id=pet_id)
     if not pet.owner == request.user:
-        return HttpResponseForbidden("You are not allowed to edit this pet.")
+        return HttpResponseForbidden()
     form = PetForm(request.POST or None, instance=pet)
     if request.method == "POST" and form.is_valid():
         form.save()
         return redirect("pets")
-    return render(request, "pets.html", {"form": form})
+    return render(request, "edit_pet.html", {"form": form})
 
+
+def delete_pet_view(request: HttpRequest, pet_id) -> HttpResponse:
+    Pet.objects.filter(id=pet_id).delete()
+    return redirect('pets')
+
+def vet_visits_view(request:HttpRequest, )->HttpResponse:
+    visit = VetVisit.objects.filter(pet__owner=request.user)
+    context = {
+        'visit': visit,
+    }
+    return render(request, 'vet_visits.html')
+
+def vet_visit_add_view(request:HttpRequest)->HttpResponse:
+    if request.method == 'POST':
+        form = VetVisitForm(request.POST)
+        if form.is_valid():
+            new_visit = form.save(commit=False)
+            new_visit.save()
+            return redirect('pets')
+    else:
+        form = VetVisitForm()
+    return render(request, 'vet_visits.html', {'form': form})
 
 @login_required
 def logout_view(request:HttpRequest)->HttpResponse:

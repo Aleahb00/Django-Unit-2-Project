@@ -17,16 +17,9 @@
                 <hr></hr>
 
                     <li>Notes: {{pet.notes}}</li>
-
-                <a href="{% url 'edit-pet' pet.id %}">Edit</a>
-                <form method="POST" action="{% url 'edit-pet' %}">
-                {% csrf_token %}
-                {% for field in form %}
-                    {{field}}
-                {% endfor %}
-                <button type="submit" class="button">Save Changes</button>
-            </form>
                 </ul>
+                <a href="{% url 'edit-pet' pet.id %}">Edit</a>
+                <a href="{% url 'delete_pet' pet.id %}">Delete</a>
             <hr></hr>
             </div>
             {%endfor%}
@@ -45,6 +38,8 @@
 
             <a href="{% url 'add-pet' %}" class="button">Add Pet</a>
         </div>
+
+        <a href='{% url 'vet-visits' %}'> Vet Visits </a>
     </main> 
 </body>
 {%endblock content%}
