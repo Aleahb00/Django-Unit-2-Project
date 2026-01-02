@@ -32,16 +32,16 @@ class PetForm(forms.ModelForm):
                 'placeholder': 'Age'
             }),
             'allergies': forms.Textarea(attrs={
-                'placeholder': 'Allergies',
+                'placeholder': 'Allergies(optional)',
             }),
             'personality': forms.Textarea(attrs={
-                'placeholder': 'Personality',
+                'placeholder': 'Personality(optional)',
             }),
             'daily_routine': forms.Textarea(attrs={
-                'placeholder': 'Daily Routine',
+                'placeholder': 'Daily Routine(optional)',
             }),
             'care_instructions': forms.Textarea(attrs={
-                'placeholder': 'Care Instructions',
+                'placeholder': 'Care Instructions(optional)',
             }),
         }
 
@@ -49,7 +49,7 @@ class PetForm(forms.ModelForm):
 class VetVisitForm(forms.ModelForm):
     class Meta:
         model = VetVisit
-        fields = ['visit_date', 'reason', 'vet_name', 'description']
+        fields = ['pet', 'visit_date', 'reason', 'vet_name', 'description']
         widgets = {
             'visit_date': forms.DateInput(attrs={
                 'type': 'date'
@@ -62,6 +62,5 @@ class VetVisitForm(forms.ModelForm):
             }),
             'description': forms.Textarea(attrs={
                 'placeholder': 'Description',
-                'rows': 3
             }),
         }

@@ -86,25 +86,44 @@ def vet_visits_view(request:HttpRequest, )->HttpResponse:
     context = {
         'visit': visit,
     }
-    return render(request, 'vet_visits.html')
+    return render(request, 'vetVisits.html', context)
 
-def vet_visit_add_view(request:HttpRequest)->HttpResponse:
+def create_vet_visit_view(request:HttpRequest)->HttpResponse:
     if request.method == 'POST':
         form = VetVisitForm(request.POST)
         if form.is_valid():
             new_visit = form.save(commit=False)
+            new_visit.pet = form.cleaned_data['pet']
             new_visit.save()
             return redirect('pets')
     else:
         form = VetVisitForm()
-    return render(request, 'vet_visits.html', {'form': form})
+    form.fields["pet"].queryset = Pet.objects.filter(
+        owner=request.user)
+    return render(request, 'vetVisits.html', {'form': form})
+
+
+def edit_vet_visit_view(request:HttpRequest, visit_id:int)->HttpResponse:
+    visit = get_object_or_404(VetVisit, id=visit_id)
+    if not visit.pet.owner == request.user:
+        return HttpResponseForbidden()
+    form = VetVisitForm(request.POST or None, instance=visit)
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        return redirect("vet-visits")
+    return render(request, "edit_vetVisit.html", {"form": form})
+
+
+def delete_vet_visit_view(request: HttpRequest, visit_id) -> HttpResponse:
+    VetVisit.objects.filter(id=visit_id).delete()
+    return redirect('vet-visits')
 
 @login_required
 def logout_view(request:HttpRequest)->HttpResponse:
     logout(request)
     return redirect('landing')
 
-
+# SEARCH VIEW - TO BE IMPLEMENTED LATER (potentially for posts, visits, etc.)
 # def search_view(request:HttpRequest)->HttpResponse:
 #     query = request.GET.get('q') 
 #     results = Course.objects.all()

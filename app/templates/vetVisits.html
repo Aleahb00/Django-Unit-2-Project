@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+<body>
+
+
+    {%if visit%}
+            {%for v in visit%}
+            <div>
+                <ul>
+                    <li>Name: {{v.pet.name}}</li>
+                    <li>Reason: {{v.reason}}</li> 
+                    <li>Date: {{v.visit_date}}</li>
+                    <a href='{% url 'edit-visit' v.id %}'>Edit</a>
+                    <a href='{% url 'delete-visit' v.id %}'>Delete Visit</a>
+                    
+                <hr></hr>
+                </ul>
+                {% comment %} <a href="{% url 'edit-pet' pet.id %}">Edit</a>
+                <a href="{% url 'delete_pet' pet.id %}">Delete</a> {% endcomment %}
+            <hr></hr>
+            </div>
+            {%endfor%}
+        {%else%}
+        </p>No visits yet.</p>
+        {%endif%}
+
+            <a href="{% url 'add-visit' %}" class="button">Add Visit</a>
+
+
+        <form method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            {{field}}
+        {% endfor %}
+        <button type="submit" class="button">Add Visit</button>
+    </form>
+
+    <a href="javascript:history.back()">Go Back</a>
+
+
+</body>
+{%endblock content%}

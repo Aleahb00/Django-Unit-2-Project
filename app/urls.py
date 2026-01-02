@@ -13,7 +13,9 @@ urlpatterns = [
     path('pets/edit-pet/<int:pet_id>/', edit_pet_view, name='edit-pet'),
     path('pets/delete-pet/<int:pet_id>/', delete_pet_view, name='delete_pet'),
     path('vet-visits/', vet_visits_view, name='vet-visits'),
-    path('vet-visits/add-visit', vet_visit_add_view, name='add-visit'),
+    path('vet-visits/add-visit/', create_vet_visit_view, name='add-visit'),
+    path('vet-visits/delete-visit/<int:visit_id>/', delete_vet_visit_view, name='delete-visit'),
+    path('vet-visits/edit-visit/<int:visit_id>/', edit_vet_visit_view, name='edit-visit')
 
     # path('search/', search_view, name='search'),
 ]
