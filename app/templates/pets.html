@@ -5,37 +5,41 @@
 {% include 'navbar.html' %}
     <a href="javascript:history.back()">Go Back</a>
 
+    
+<div class='container'>
+    <div class='container text-center'>
+        <div class='col'>
 
-    <h2>Hello, {{user.first_name}}!</h2>
+                    <h2>Hello, {{user.first_name}}!</h2>
+                    {%if pets%}
+                        {%for pet in pets%}
+                        <div class='card'>
+                            <div class='card-body'>
+                                    <h5 class='card-title'>Name: {{pet.name}}</h5>
+                                    <h6 class='card-subtitle mb-2 test-body-secondary'>Breed: {{pet.breed}} &#8594; {{pet.age}}</h6> 
 
-    {%if pets%}
-        {%for pet in pets%}
-            <div>
-                <ul>
-                    <li>Name: {{pet.name}}</li>
-                    <li>Breed: {{pet.breed}}</li> 
-                    <li>Age: {{pet.age}}</li>
+                                {% comment %} <hr></hr> {% endcomment %}
 
-                <hr></hr>
+                                    {% comment %} <li>Allergies: {{pet.allergies}}</li>
+                                    <li>Personality: {{pet.personality}}</li>
+                                    <li>Daily Routine: {{pet.daily_routine}}</li>
+                                    <li>Care instructions: {{pet.care_instructions}}</li> {% endcomment %}
 
-                    <li>Allergies: {{pet.allergies}}</li>
-                    <li>Personality: {{pet.personality}}</li>
-                    <li>Daily Routine: {{pet.daily_routine}}</li>
-                    <li>Care instructions: {{pet.care_instructions}}</li>
-                </ul>
-
-                <a href="{% url 'edit-pet' pet.id %}">Edit</a>
-                <a href="{% url 'delete_pet' pet.id %}">Delete</a>
-                
-                <hr></hr>
-                <hr></hr>
-                
+                                <a href="{% url 'edit-pet' pet.id %}">Edit</a>
+                                <a href="{% url 'delete_pet' pet.id %}">Delete</a>
+                                
+                                {% comment %} <hr></hr>
+                                <hr></hr> {% endcomment %}
+                            </div>
+                        </div>
+                        {%endfor%}
+                    {%else%}
+                        </p>No pets yet.</p>
+                    {%endif%}
+                </div>
             </div>
-        {%endfor%}
-    {%else%}
-        </p>No pets yet.</p>
-    {%endif%}
-
+        </div>
+    </div>
 
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPetModal" action="{% url 'pets' %}">Add pet</button>
         <div class="modal fade" id="addPetModal" tabindex="-1" aria-hidden="true">
@@ -65,6 +69,6 @@
                 </div>
             </div>
         </div>
-
+</div>
 
 {%endblock content%}

@@ -10,7 +10,6 @@ form{
     --font-color-sub: #666;
     --bg-color: #fff;
     --main-color: #323232;
-    
     gap: 20px;
     border-radius: 5px;
     border: 2px solid var(--main-color);
@@ -30,5 +29,9 @@ form{
     color: var(--font-color);
     padding: 5px 10px;
     outline: none;
+}
+
+.navbar navbar-expand-lg bg-body-tertiary{
+    background-color: aquamarine;
 }
 
