@@ -190,13 +190,19 @@ def delete_vaccination_view(request:HttpRequest,vaccination_id:int)-> HttpRespon
 
 def community_view(request:HttpRequest)->HttpResponse:
     posts = CommunityPost.objects.all().order_by('-created_at')
-    context = {
-        'posts': posts,
-    }
-    return render(request, 'community.html', context)
+    if request.method == 'POST':
+        form = CommunityPostForm(request.POST)
+        if form.is_valid():
+            new_post = form.save(commit=False)
+            new_post.author = request.user
+            new_post.save()
+            return redirect('community')
+    else:
+        form = CommunityPostForm()
+    return render(request, 'community.html', {'posts':posts, 'form':form})
 
 
-def create_post_view(request:HttpRequest)->HttpResponse:
+# def create_post_view(request:HttpRequest)->HttpResponse:
     if request.method == 'POST':
         form = CommunityPostForm(request.POST)
         if form.is_valid():

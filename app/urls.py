@@ -25,7 +25,7 @@ urlpatterns = [
     path('vaccinations/delete-vaccination/<int:vaccination_id>/', delete_vaccination_view, name='delete-vaccination'),
     
     path('community/', community_view, name='community'),
-    path('community/add-post/', create_post_view, name='create-post'),
+    # path('community/add-post/', create_post_view, name='create-post'),
     path('community/edit-post/<int:post_id>', edit_post_view, name='edit-post'),
     path('community/delete-post/<int:post_id>', delete_post_view, name='delete-post'),
     

@@ -14,33 +14,42 @@ class RegistrationForm(UserCreationForm):
         model = User
         fields = UserCreationForm.Meta.fields + ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
 
+
 class PetForm(forms.ModelForm):
     class Meta:
         model = Pet
         fields = ['name', 'species', 'breed', 'age', 'allergies', 'personality', 'daily_routine', 'care_instructions']
         widgets = {
             'name': forms.TextInput(attrs={
+                'class':'input',
                 'placeholder': 'Pet name'
             }),
             'species': forms.TextInput(attrs={
+                'class':'input',
                 'placeholder': 'Species'
             }),
             'breed': forms.TextInput(attrs={
+                'class':'input',
                 'placeholder': 'Breed'
             }),
             'age': forms.NumberInput(attrs={
+                'class':'input',
                 'placeholder': 'Age'
             }),
             'allergies': forms.Textarea(attrs={
+                'class':'input',
                 'placeholder': 'Allergies(optional)',
             }),
             'personality': forms.Textarea(attrs={
+                'class':'input',
                 'placeholder': 'Personality(optional)',
             }),
             'daily_routine': forms.Textarea(attrs={
+                'class':'input',
                 'placeholder': 'Daily Routine(optional)',
             }),
             'care_instructions': forms.Textarea(attrs={
+                'class':'input',
                 'placeholder': 'Care Instructions(optional)',
             }),
         }
