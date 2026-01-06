@@ -1252,7 +1252,7 @@ button {
     background-color: #D3DDF1;
     border: 1.5px solid #1677FF;
 }
-.container {
+.vcontainer {
     padding: 1rem;
     display: flex;
     flex-direction: row;

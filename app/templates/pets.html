@@ -43,7 +43,7 @@
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPetModal" action="{% url 'pets' %}">Add pet</button>
         <div class="modal fade" id="addPetModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <!-- <div class="modal-content"> -->
 
                     <form method="POST" action="{% url 'pets' %}">
                     {% csrf_token %}
@@ -65,7 +65,7 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         </div>
                     </form>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
 </div>
