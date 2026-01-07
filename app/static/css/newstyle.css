@@ -9,7 +9,11 @@
     align-content: center;
 }
 
+
+/* PADDING TOP NEEDS TO BE FIXED */
 .task {
+    padding:5rem; 
+    height: 8rem;
     align-self: center;
     position: relative;
     color: #2e2e2f;
