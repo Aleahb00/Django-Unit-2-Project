@@ -1,3 +1,4 @@
+/* LOGIN WRAPPER */
 .login-wrapper{
     display:flex; 
     flex-direction:column; 
@@ -6,11 +7,11 @@
     text-align: center;
 }
 
-.login-wrapper a{
-    text-align: center;
-}
 
-.login-wrapper img{
+
+
+/* INTRODUCTORY WORDS */
+.login-wrapper .intro img{
     width: 5%;
 }
 
@@ -26,6 +27,9 @@
     font-size: 1.5rem;
     font-weight: 100;
 }
+
+
+
 
 /* ACTUAL FORM CSS */
 .login-wrapper .card {
@@ -54,7 +58,7 @@
 .login-wrapper .input-icon {
     height: 1em;
     width: 1em;
-    fill: #ffeba7;
+    fill: #000;
 }
 
 .login-wrapper .input-field {
@@ -81,7 +85,7 @@
     font-size: 1em;
     text-transform: uppercase;
     padding: 1rem 5em;
-    background-color: #ffeba7;
+    background-color: lightcyan;
     color: #5e6681;
     box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
     transition: all .3s ease-in-out;
@@ -107,4 +111,13 @@
 
 .login-wrapper .btn-link:hover {
     color: #ffeba7;
+}
+
+
+
+
+/* EXTRA */
+.login-wrapper a{
+    text-align: center;
+    color: #000;
 }
