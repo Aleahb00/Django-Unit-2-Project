@@ -10,22 +10,45 @@
     text-align: center;
 }
 
+.login-wrapper img{
+    width: 5%;
+}
+
+.login-wrapper .intro{
+    line-height: 1.5rem;
+}
+
+.login-wrapper .intro h1{
+    font-size: 2rem;
+}
+
+.login-wrapper .intro h2{
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+/* ACTUAL FORM CSS */
 .login-wrapper .card {
-    width: 190px;
-    padding: 1.9rem 1.2rem;
+    width: 30%;
+    padding: 2rem 4rem;
     text-align: center;
-    background: #2a2b38;
+    background: #fff;
+    border-radius: 40px;
+    border: #000 solid 1px;
+    box-shadow: #000 5px 15px 5px;
 }
 
 .login-wrapper .field {
-    margin-top: .5rem;
+    margin-top: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: .5em;
-    background-color: #1f2029;
+    background-color: lightcyan;
     border-radius: 4px;
-    padding: .5em 1em;
+    padding: 1em 1em;
+    border: #000 solid 1px;
+
 }
 
 .login-wrapper .input-icon {
@@ -46,17 +69,18 @@
     margin-bottom: 1rem;
     font-size: 1.5em;
     font-weight: 500;
-    color: #f5f5f5;
+    color: #000;
 }
 
 .login-wrapper .btn {
-    margin: 1rem;
+    margin: 4rem;
+    margin-bottom: 2rem;
     border: none;
     border-radius: 4px;
     font-weight: bold;
-    font-size: .8em;
+    font-size: 1em;
     text-transform: uppercase;
-    padding: 0.6em 1.2em;
+    padding: 1rem 5em;
     background-color: #ffeba7;
     color: #5e6681;
     box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
