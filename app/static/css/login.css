@@ -5,6 +5,7 @@
     align-items:center; 
     justify-content:center; 
     text-align: center;
+    margin-bottom: 5rem;
 }
 
 
@@ -40,6 +41,7 @@
     border-radius: 40px;
     border: #000 solid 1px;
     box-shadow: #000 5px 15px 5px;
+    align-items: center;
 }
 
 .login-wrapper .field {
@@ -118,6 +120,6 @@
 
 /* EXTRA */
 .login-wrapper a{
-    text-align: center;
     color: #000;
+    display: inline-block
 }

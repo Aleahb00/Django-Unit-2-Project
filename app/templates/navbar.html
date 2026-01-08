@@ -4,17 +4,25 @@
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 
 <div class="navbar-wrapper">
-    <ul>
-        <li><a href="{% url 'pets' %}">My Pets</a></li>
-        <li><a href="{% url 'vet-visits' %}">Health Records</a></li>
-        <li><a href="{% url 'vet-visits' %}">Vet Visits</a></li>
-        <li><a href="{% url 'vaccinations' %}">Vaccinations</a></li>
-        <li><a href="{% url 'community' %}">Community</a></li>
-        <li><a href="{% url 'landing' %}">Landing</a></li>
-        <li><a href="{% url 'logout' %}">Logout</a></li>
-        <li><a href="{% url 'login' %}">Log in</a></li>
-        <li><a href="{% url 'register' %}">Sign up</a></li>
-    </ul>
+
+    <nav class="nav-bar">
+        <a href="{% url 'landing' %}" style="margin-right:auto;" >PawCare</a>
+        <div style="display:flex; gap:10px;">
+            <a href="{% url 'pets' %}" class="active">My Pets</a>
+            <div class="dropdown">
+                <button class="dropbtn">Health Records</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'vet-visits' %}">Vet Visits</a>
+                    <a href="{% url 'vaccinations' %}">Vaccinations</a>
+                </div>
+            </div>
+            <a href="{% url 'community' %}">Community</a>
+        </div>
+        <a href="{% url 'logout' %}" style="margin-left:auto; color: red;">Logout</a>
+        <a href="{% url 'login' %}">Log in</a>
+        <a href="{% url 'register' %}">Sign up</a>
+    </nav>
+
 </div>
 
 
