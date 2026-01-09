@@ -9,6 +9,8 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import *
 from .forms import *
+from django.template.loader import get_template
+# from xhtml2pdf import pisa 
 # from .functions import *
 
 
@@ -48,7 +50,7 @@ def login_view(request:HttpRequest)->HttpResponse:
 def pets_view(request:HttpRequest)->HttpResponse:
     pets = Pet.objects.filter(owner=request.user)
     if request.method == 'POST':
-        form = PetForm(request.POST)
+        form = PetForm(request.POST, )
         if form.is_valid():
             new_pet = form.save(commit=False)
             new_pet.owner = request.user
@@ -257,3 +259,25 @@ def logout_view(request:HttpRequest)->HttpResponse:
 #         'query': query,
 #     }
 #     return render(request, 'teacher_dashboard.html', context)
+
+# def download_pdf(request):
+#     # Fetch data
+#     pets = Pet.objects.filter(owner=request.user)
+#     context = {'pets': pets}
+#     template = get_template('pets.html')
+#     html = template.render(context)
+
+#     response = HttpResponse(content_type='application/pdf')
+#     response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+
+#     pisa_status = pisa.CreatePDF(html, dest=response) # For xhtml2pdf
+
+#     if pisa_status.err:
+#         return HttpResponse('Error generating PDF', status=500)
+
+#     return response
+
+def pet_print_view(request, pet_id):
+    pet = Pet.objects.filter(id=pet_id).delete()
+    return render(request, 'pets.html', {'pet': pet})
+

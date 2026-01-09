@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Pet(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='product_images/', blank=True, null=True)
     name = models.CharField(max_length=100)
     species = models.CharField(max_length=50)
     breed = models.CharField(max_length=100, blank=True, null=True)
