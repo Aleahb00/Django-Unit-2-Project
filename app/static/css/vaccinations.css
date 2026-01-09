@@ -8,7 +8,11 @@
     margin: 0 auto;
 }
 
-
+.vaccination-wrapper .upcoming-vaccinations-card {
+    border: aqua 1px solid;
+    padding: 2%;
+    border-radius: 20px;
+}
 
 
 /* FOR ACTUAL VACCINES */

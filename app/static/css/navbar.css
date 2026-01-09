@@ -1,4 +1,9 @@
 /* Navbar container */
+.navbar-wrapper .icon{
+    width: 40px;
+    height: 40px;
+}
+
 .navbar-wrapper .nav-bar {
     position: fixed;
     padding: 16px;
