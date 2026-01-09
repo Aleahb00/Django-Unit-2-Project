@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{%block css%}
+<link rel="stylesheet" href="{% static 'css/pets.css' %}">
+{%endblock%}
+
+{% include 'navbar.html' %}
+
+    <section class="content-wrapper">
+
+
+        <div class="pets-wrapper">
+
+        </div>
+
+
+    </section>
+
+
+{% endblock content %}

@@ -43,7 +43,8 @@
             </div>
             <div class="card">
                 <h4 class="title">Sign up!</h4>
-                <form>
+                <form method='POST'>
+                    {% csrf_token %}
                     <label for="{{ form.username.id_for_label }}">Username</label>
                     <div class="field">
                         {% render_field form.username class+="input-field"  %}
@@ -58,29 +59,8 @@
                     <a href="{%url 'login'%}">Already have an account? Login here.</a>
                 </form>
             </div>
+
         </div>
-
-            {% comment %} <div class="form-section" style="text-align:center; ">
-                <div class="intro">
-                    <h1>Create Your Account</h1>
-                    <p>Start tracking your pet's health in today!</p>
-                </div>
-                <form method="POST">
-                        {% csrf_token %}
-                        {%for field in form%}
-                        {{field.label_tag}}
-                        {{field}}
-                        {%endfor%}
-                        <button type="submit">Register</button>
-                        <a href="{%url 'login'%}" style="font-size:12px; text-align: center;">Already have an account? Login Here.</a>
-                </form>
-            </div> {% endcomment %}
-
-
-
-
-
-
 
 
     </section>

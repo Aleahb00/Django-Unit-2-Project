@@ -25,7 +25,8 @@
 
             <div class="card">
                 <h4 class="title">Log In!</h4>
-                <form>
+                <form method='POST'>
+                    {% csrf_token %}
 
                     <label for="{{ form.username.id_for_label }}">Username</label>
                     <div class="field">
