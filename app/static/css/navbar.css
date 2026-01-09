@@ -1,0 +1,80 @@
+/* Navbar container */
+.navbar-wrapper .nav-bar {
+    position: fixed;
+    padding: 16px;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, .82);
+    backdrop-filter: blur(10px);
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 1rem 0;
+
+}
+.navbar-wrapper .nav-bar a {
+    color: rgb(0, 0, 0);
+    padding: 8px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #111827;
+    letter-spacing: -0.01em;
+}
+/* The dropdown container */
+.navbar-wrapper .dropdown {
+    float: left;
+    overflow: hidden;
+}
+/* Dropdown button */
+.navbar-wrapper .dropdown .dropbtn {
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    color: rgb(0, 0, 0);
+    padding: 8px 10px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #111827;
+    letter-spacing: -0.01em;
+}
+.navbar-wrapper .nav-bar a:focus {
+    color: rgb(50, 50, 255);
+}
+.navbar-wrapper .nav-bar a:hover {
+    background-color: rgba(128, 128, 128, 0.164);
+}
+.navbar-wrapper .nav-bar .dropdown .dropbtn:focus {
+    color: rgb(50, 50, 255);
+}
+.navbar-wrapper .nav-bar .dropdown .dropbtn:hover {
+    background-color: rgba(128, 128, 128, 0.164);
+}
+/* Dropdown content (hidden by default) */
+.navbar-wrapper .dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+/* Links inside the dropdown */
+.navbar-wrapper .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+/* Add a grey background color to dropdown links on hover */
+.navbar-wrapper .dropdown-content a:hover {
+    background-color: rgba(128, 128, 128, 0.164);
+}
+/* Show the dropdown menu on hover */
+.navbar-wrapper .dropdown:hover .dropdown-content {
+    display: block;
+}

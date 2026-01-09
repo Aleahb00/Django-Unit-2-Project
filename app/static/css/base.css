@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    line-height: 1.5;
+    background-image: url('/static/images/paws.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.content-wrapper{
+    margin: 0;
+    margin-top: 5rem;
+}
