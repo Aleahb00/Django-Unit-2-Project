@@ -18,7 +18,7 @@ class RegistrationForm(UserCreationForm):
 class PetForm(forms.ModelForm):
     class Meta:
         model = Pet
-        fields = ['name', 'species', 'breed', 'age', 'allergies', 'personality', 'daily_routine', 'care_instructions']
+        fields = ['name','image', 'species', 'breed', 'age', 'allergies', 'personality', 'daily_routine', 'care_instructions']
         widgets = {
             'name': forms.TextInput(attrs={
                 'class':'input',

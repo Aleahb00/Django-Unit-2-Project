@@ -1,81 +1,48 @@
-{%extends 'base.html'%}
-{%load static%}
-{%block content%}
-<link rel="stylesheet" href="{% static 'css/vaccination.css' %}">
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{%block css%}
+<link rel="stylesheet" href="{% static 'css/vaccinations.css' %}">
+{%endblock%}
 
 {% include 'navbar.html' %}
-    <a href="javascript:history.back()">Go Back</a>
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-8">
-            <h1>Pet Vaccinations</h1>
-            {% if vaccinations %}
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Pet Name</th>
-                        <th>Vaccination</th>
-                        <th>Date</th>
-                        <th>Next Due</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for vaccination in vaccinations %}
-                        <tr>
-                            <td>{{ vaccination.pet.name }}</td>
-                            <td>{{ vaccination.vaccine_name }}</td>
-                            <td>{{ vaccination.date_administered }}</td>
-                            <td>{{ vaccination.next_due_date }}</td>
-                            <td>
-                                <a href="{% url 'edit-vaccination' vaccination.id %}" >Edit</a>
-                                <a href="{% url 'delete-vaccination' vaccination.id %}">Delete</a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            {% else %}
-                <p>No vaccinations recorded yet.</p>
-            {% endif %}
-        </div>
-    </div>
-<div>
+    <section class="content-wrapper">
 
 
+        <div class="vaccination-wrapper">
+            {% for vaccination in vaccinations %}
 
-
-
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addVaccinationModal" action="{% url 'vaccinations' %}">Add Vaccination</button>
-        <div class="modal fade" id="addVaccinationModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <form method="POST" action="{% url 'vaccinations' %}">
-                    {% csrf_token %}
-
-                        <div class="modal-header">
-                            <h5 class="modal-title">Add Vaccination</h5>
-                            
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <div class="p-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center text-2xl shrink-0"><img src=""></div>
+                        <div class="flex-1">
+                        <h3 class="font-bold font-display">{{ vaccination.vaccine_name }}</h3>
+                        <p class="text-sm text-muted-foreground">{{vaccination.pet.name}}</p>
                         </div>
-                        <div class="modal-body">
-
-                            {% for field in form %}
-                                {{field}}
-                            {% endfor %}
-
+                        <div class="text-right">
+                        <span class="text-xs text-muted-foreground">Due in: {{ vaccination.next_due_date }}</span>
                         </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-success">Save Vaccination</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-border flex justify-between text-sm">
+                        <div>
+                        <p class="text-muted-foreground">Last Given</p>
+                        <p class="font-medium">{{ vaccination.date_administered }}</p>
                         </div>
-                    </form>
+                        <div class="text-right">
+                        <p class="text-muted-foreground">Next Due</p>
+                        <p class="font-medium">{{ vaccination.next_due_date }}</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            {%endfor%}
+
         </div>
 
 
+    </section>
 
-{% endblock %}
+
+{% endblock content %}

@@ -1,34 +1,69 @@
-{%extends 'base.html'%}
-{%load static%}
-{%block content%}
-<link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
 
-   <div style="display: flex; min-height: 100vh;">
-        <div class="image-section">
-                <a href="{% url 'landing' %}"><img src="{% static 'images/paws-icon.png' %}" alt="PawCare logo" style="height: 50px; width: 50px;"/></a>
-                <h2>Start your pet's health journey today</h2>
-                Join thousands of pet parents who trust PawCare to keep their furry friends happy and healthy.<br>
-                <ul>
+
+{% block content %}
+
+{%block css%}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{%endblock%}
+
+{% include 'navbar.html' %}
+
+    <section class="content-wrapper">
+
+
+
+
+        <div class="register-wrapper">
+
+
+            <div class="image-section">
+                <div class="image-section-content">
+                    <h2><img class="logo" src="{% static 'images/paws-icon.png' %}" alt="PawCare logo">PawCare</h2>
+                    <h1>Start your pet's health journey today</h1>
+                    Join thousands of pet parents who trust PawCare to keep their furry friends happy and healthy.<br>
+
+                    <ul>
                         <li>Track unlimited pet profiles</li>
                         <li>Log vet visits & vaccinations</li>
                         <li>Set health reminders</li>
                         <li>Connect with a community of pet lovers</li>
-                </ul>
+                    </ul>
                 </div>
 
-        <div class="form-section">
+            </div>
+
+
+        <div class="form-section" style="text-align:center; ">
+            <div class="intro">
                 <h1>Create Your Account</h1>
                 <p>Start tracking your pet's health in today!</p>
-                <form method="POST">
-                        {% csrf_token %}
-                        {%for field in form%}
-                        {{field.label_tag}}
-                        {{field}}
-                        {%endfor%}
-                        <button type="submit">Register</button>
-                        <a href="{%url 'login'%}" style="font-size:12px;">Already have an account? Login Here.</a>
-                </form>
-        </div>
-   </div>
+            </div>
+            <div class="card">
+                <h4 class="title">Sign up!</h4>
+                <form method='POST'>
+                    {% csrf_token %}
+                    <label for="{{ form.username.id_for_label }}">Username</label>
+                    <div class="field">
+                        {% render_field form.username class+="input-field"  %}
+                    </div>
 
-{%endblock content%}
+                    <label for="{{ form.password.id_for_label }}">Password</label>
+                    <div class="field">
+                        {% render_field form.password class+="input-field" %}
+                    </div>
+
+                        <button class="btn" type="submit">Create Account</button>
+                    <a href="{%url 'login'%}">Already have an account? Login here.</a>
+                </form>
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+{% endblock content %}

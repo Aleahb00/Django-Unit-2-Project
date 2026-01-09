@@ -1,5 +1,9 @@
 from django.urls import path
 from .views import *
+from django.contrib import admin
+from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', landing_view, name="landing"),
@@ -33,8 +37,14 @@ urlpatterns = [
     
     path('community/post-details/delete-comment/<int:comment_id>/', delete_comment_view, name='delete-comment'),
 
+    
 
 
-
+    # path('download-pdf/', views.download_pdf, name='download_pdf')
     # path('search/', search_view, name='search'),
+    path('pets/<int:pet_id>/print/', pet_print_view, name='pet_print'),
+
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

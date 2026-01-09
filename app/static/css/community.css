@@ -1,90 +1,90 @@
-
-.community-page{
-    margin-top: 5rem;
-    line-height: .5rem;
+/* COMMUNITY WRAPPER */
+.community-wrapper {
     display: flex;
-    justify-content:center;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 5rem;
 }
 
-
-/* PADDING TOP NEEDS TO BE FIXED */
-.task {
-    padding:5rem; 
-    height: 8rem;
+.community-wrapper .task {
+    padding: 1rem;
     align-self: center;
     position: relative;
     color: #2e2e2f;
     background-color: #fff;
-    padding: 1rem;
     border-radius: 8px;
     box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
     margin-bottom: 1rem;
     border: 3px dashed transparent;
-    width:45rem;
+    width: 45rem;
 }
 
-.task:hover {
+.community-wrapper .task:hover {
     box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
 }
 
-.task p {
+.community-wrapper .task p {
     font-size: 15px;
-    margin: 1.2rem 0;
+    margin: 1rem 0;
+    text-align: left;
 }
 
-.tag {
+.community-wrapper .tag {
     border-radius: 100px;
     font-size: 22px;
+    font-weight: 600;
 }
 
-.tags {
+.community-wrapper .tags {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 0.5rem;
 }
 
-.options {
-    float: right;
+.community-wrapper .options {
     background: transparent;
     border: 0;
     color: #c4cad3;
     font-size: 18px;
     width: fit-content;
+    cursor: pointer;
 }
 
-.options svg {
+.community-wrapper .options svg {
     fill: #9fa4aa;
     width: 20px;
 }
 
-.stats {
+.community-wrapper .stats {
     position: relative;
     width: 100%;
     color: #9fa4aa;
     font-size: 12px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
 }
 
-.stats div {
-    margin-right: 1rem;
+.community-wrapper .stats div {
     height: 20px;
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
-.stats svg {
+.community-wrapper .stats svg {
     margin-right: 5px;
     height: 100%;
     stroke: #9fa4aa;
 }
 
-.viewer span {
+.community-wrapper .viewer span {
     height: 30px;
     width: 30px;
     background-color: rgb(28, 117, 219);
@@ -99,7 +99,7 @@
     padding: 2px;
 }
 
-.viewer span svg {
+.community-wrapper .viewer span svg {
     stroke: #fff;
 }
 
@@ -205,4 +205,229 @@
 
 .btn-close::after {
     transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+
+
+
+/* POST DETAILS */
+.post-details-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 45rem;
+    margin: 0 auto 5rem;
+    padding: 1rem;
+}
+
+.post-details-wrapper h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2e2e2f;
+    margin-bottom: 1rem;
+    text-align: left;
+    width: 100%;
+}
+
+.post-details-wrapper h2,
+.post-details-wrapper h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2e2e2f;
+    text-align: left;
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-details-wrapper > p {
+    font-size: 15px;
+    color: #2e2e2f;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.post-details-wrapper #comments {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.post-details-wrapper #comments > div {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+    border: 1px solid #e0e0e0;
+}
+
+.post-details-wrapper #comments p {
+    font-size: 14px;
+    color: #2e2e2f;
+    margin: 0;
+}
+
+.post-details-wrapper form {
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+}
+
+.post-details-wrapper form > div {
+    margin-bottom: 1rem;
+}
+
+.post-details-wrapper label {
+    display: block;
+    font-weight: 600;
+    color: #2e2e2f;
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+}
+
+.post-details-wrapper input,
+.post-details-wrapper textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.post-details-wrapper button {
+    background-color: #1c75db;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.post-details-wrapper button:hover {
+    background-color: #1560b8;
+}
+
+.post-details-wrapper hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 1rem 0;
+}
+
+.post-details-wrapper a {
+    color: #1c75db;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.post-details-wrapper a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+.post-details-wrapper .task {
+    padding: 1rem;
+    align-self: center;
+    position: relative;
+    color: #2e2e2f;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+    margin-bottom: 1rem;
+    border: 3px dashed transparent;
+    width: 45rem;
+}
+
+.post-details-wrapper .task:hover {
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
+}
+
+.post-details-wrapper .task p {
+    font-size: 15px;
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.post-details-wrapper .tag {
+    border-radius: 100px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.post-details-wrapper .tags {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.post-details-wrapper .options {
+    background: transparent;
+    border: 0;
+    color: #c4cad3;
+    font-size: 18px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.post-details-wrapper .options svg {
+    fill: #9fa4aa;
+    width: 20px;
+}
+
+.post-details-wrapper .stats {
+    position: relative;
+    width: 100%;
+    color: #9fa4aa;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.post-details-wrapper .stats div {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.post-details-wrapper .stats svg {
+    margin-right: 5px;
+    height: 100%;
+    stroke: #9fa4aa;
+}
+
+.post-details-wrapper .viewer span {
+    height: 30px;
+    width: 30px;
+    background-color: rgb(28, 117, 219);
+    margin-right: -10px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    padding: 2px;
+}
+
+.post-details-wrapper .viewer span svg {
+    stroke: #fff;
 }

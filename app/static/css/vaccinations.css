@@ -1,0 +1,114 @@
+/* VACCINATIONS WRAPPER */
+
+.vaccination-wrapper {
+    display: grid;
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vaccination-wrapper .p-6 {
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.vaccination-wrapper .p-6:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.vaccination-wrapper .flex {
+    display: flex;
+}
+
+.vaccination-wrapper .items-center {
+    align-items: center;
+}
+
+.vaccination-wrapper .gap-4 {
+    gap: 1rem;
+}
+
+.vaccination-wrapper .w-12 {
+    width: 3rem;
+}
+
+.vaccination-wrapper .h-12 {
+    height: 3rem;
+}
+
+.vaccination-wrapper .rounded-xl {
+    border-radius: 0.75rem;
+}
+
+.vaccination-wrapper .bg-secondary {
+    background-color: #f3f4f6;
+}
+
+.vaccination-wrapper .justify-center {
+    justify-content: center;
+}
+
+.vaccination-wrapper .text-2xl {
+    font-size: 1.5rem;
+}
+
+.vaccination-wrapper .shrink-0 {
+    flex-shrink: 0;
+}
+
+.vaccination-wrapper .flex-1 {
+    flex: 1;
+}
+
+.vaccination-wrapper .font-bold {
+    font-weight: 700;
+}
+
+.vaccination-wrapper .font-display {
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.vaccination-wrapper .text-sm {
+    font-size: 0.875rem;
+}
+
+.vaccination-wrapper .text-muted-foreground {
+    color: #6b7280;
+}
+
+.vaccination-wrapper .text-right {
+    text-align: right;
+}
+
+.vaccination-wrapper .text-xs {
+    font-size: 0.75rem;
+}
+
+.vaccination-wrapper .mt-4 {
+    margin-top: 1rem;
+}
+
+.vaccination-wrapper .pt-4 {
+    padding-top: 1rem;
+}
+
+.vaccination-wrapper .border-t {
+    border-top: 1px solid;
+}
+
+.vaccination-wrapper .border-border {
+    border-color: #e5e7eb;
+}
+
+.vaccination-wrapper .justify-between {
+    justify-content: space-between;
+}
+
+.vaccination-wrapper .font-medium {
+    font-weight: 500;
+}
