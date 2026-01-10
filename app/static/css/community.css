@@ -8,103 +8,116 @@
     margin-bottom: 5rem;
 }
 
-.community-wrapper .task {
-    padding: 1rem;
-    align-self: center;
-    position: relative;
-    color: #2e2e2f;
+
+/* POST CSS */
+.post-card {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
-    margin-bottom: 1rem;
-    border: 3px dashed transparent;
-    width: 45rem;
+    padding: 1.5rem;
+    max-width: 45rem;
+    min-width: 45rem;
+    margin: 0 auto 5rem;
 }
 
-.community-wrapper .task:hover {
+.post-card:hover {
     box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
 }
 
-.community-wrapper .task p {
-    font-size: 15px;
-    margin: 1rem 0;
+.post-header {
+    margin-bottom: 1rem;
+}
+
+.post-main {
     text-align: left;
 }
 
-.community-wrapper .tag {
-    border-radius: 100px;
-    font-size: 22px;
-    font-weight: 600;
-}
-
-.community-wrapper .tags {
-    width: 100%;
+.post-meta {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    gap: 1rem;
     margin-bottom: 0.5rem;
+    font-size: 13px;
+    color: #9fa4aa;
 }
 
-.community-wrapper .options {
-    background: transparent;
-    border: 0;
-    color: #c4cad3;
+.post-meta .username {
+    font-weight: 600;
+    color: #2e2e2f;
+}
+
+.post-title {
     font-size: 18px;
-    width: fit-content;
-    cursor: pointer;
+    font-weight: 600;
+    color: #2e2e2f;
+    margin: 0.75rem 0;
 }
 
 .community-wrapper .options svg {
     fill: #9fa4aa;
     width: 20px;
+    margin-left: 2550%;
 }
 
-.community-wrapper .stats {
-    position: relative;
-    width: 100%;
-    color: #9fa4aa;
+.post-description {
+    font-size: 14px;
+    color: #2e2e2f;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.post-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.post-tags .tag {
+    background-color: #f0f0f0;
+    color: #2e2e2f;
+    padding: 0.35rem 0.75rem;
+    border-radius: 100px;
     font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: 0.5rem;
+    font-weight: 500;
 }
 
-.community-wrapper .stats div {
-    height: 20px;
+.post-actions {
     display: flex;
-    align-items: center;
+    gap: 1rem;
+}
+
+.action-btn {
+    background: transparent;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    color: #2e2e2f;
+    font-size: 13px;
+    font-weight: 500;
     cursor: pointer;
-}
-
-.community-wrapper .stats svg {
-    margin-right: 5px;
-    height: 100%;
-    stroke: #9fa4aa;
-}
-
-.community-wrapper .viewer span {
-    height: 30px;
-    width: 30px;
-    background-color: rgb(28, 117, 219);
-    margin-right: -10px;
-    border-radius: 50%;
-    border: 1px solid #fff;
-    display: grid;
+    display: flex;
     align-items: center;
-    text-align: center;
-    font-weight: bold;
-    color: #fff;
-    padding: 2px;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
 }
 
-.community-wrapper .viewer span svg {
-    stroke: #fff;
+.action-btn:hover {
+    border-color: #1c75db;
+    color: #1c75db;
+}
+
+.action-btn svg {
+    width: 16px;
+    height: 16px;
 }
 
 
 
 
+
+
+
+/* EXTRA // FORM CSS */
 
 
 
