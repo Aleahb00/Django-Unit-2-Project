@@ -4,7 +4,6 @@ from django.http.request import HttpRequest
 from django.contrib.auth import authenticate, login, logout
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.forms import AuthenticationForm
-from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import *
 from django.contrib import messages
 from django.db.models import Q
@@ -87,7 +86,7 @@ def add_pet_view(request:HttpRequest)->HttpResponse:
 def edit_pet_view(request:HttpRequest, pet_id:int)->HttpResponse:
     pet = get_object_or_404(Pet, id=pet_id)
     if not pet.owner == request.user:
-        return HttpResponseForbidden()
+        raise PermissionDenied
     form = PetForm(request.POST or None, instance=pet)
     if request.method == "POST" and form.is_valid():
         form.save()
@@ -126,7 +125,7 @@ def vet_visits_view(request:HttpRequest)->HttpResponse:
 def edit_vet_visit_view(request:HttpRequest, visit_id:int)->HttpResponse:
     visit = get_object_or_404(VetVisit, id=visit_id)
     if not visit.pet.owner == request.user:
-        return HttpResponseForbidden()
+        raise PermissionDenied
     form = VetVisitForm(request.POST or None, instance=visit)
     if request.method == "POST" and form.is_valid():
         form.save()
@@ -157,25 +156,11 @@ def vaccinations_view(request:HttpRequest)-> HttpResponse:
     return render(request, 'vaccinations.html', {'vaccinations':vaccinations, 'form':form})
 
 
-# def create_vaccination_view(request:HttpRequest)-> HttpResponse:
-    if request.method == 'POST':
-        form = VaccinationForm(request.POST)
-        if form.is_valid():
-            new_vaccine = form.save(commit=False)
-            new_vaccine.pet = form.cleaned_data['pet']
-            new_vaccine.save()
-            return redirect('vaccinations')
-    else:
-        form = VaccinationForm()
-    form.fields["pet"].queryset = Pet.objects.filter(
-        owner=request.user)
-    return render(request, 'vaccinations.html', {'form': form})
-
 @login_required
 def edit_vaccination_view(request:HttpRequest,vaccination_id:int)-> HttpResponse:
     vaccination = get_object_or_404(Vaccination, id=vaccination_id)
     if not vaccination.pet.owner == request.user:
-        return HttpResponseForbidden()
+        raise PermissionDenied
     form = VaccinationForm(request.POST or None, instance=vaccination)
     if request.method == "POST" and form.is_valid():
         form.save()
@@ -191,6 +176,12 @@ def delete_vaccination_view(request:HttpRequest,vaccination_id:int)-> HttpRespon
 @login_required
 def community_view(request:HttpRequest)->HttpResponse:
     posts = CommunityPost.objects.all().order_by('-created_at')
+    query = request.GET.get('q') 
+    results = CommunityPost.objects.all()
+    if query:
+        results = results.filter(Q(title__icontains=query))
+    else:
+        results = CommunityPost.objects.none()
     if request.method == 'POST':
         form = CommunityPostForm(request.POST)
         if form.is_valid():
@@ -200,19 +191,8 @@ def community_view(request:HttpRequest)->HttpResponse:
             return redirect('community')
     else:
         form = CommunityPostForm()
-    return render(request, 'community.html', {'posts':posts, 'form':form})
+    return render(request, 'community.html', {'posts':posts, 'form':form, 'results':results, 'query':query})
 
-# def create_post_view(request:HttpRequest)->HttpResponse:
-    if request.method == 'POST':
-        form = CommunityPostForm(request.POST)
-        if form.is_valid():
-            new_post = form.save(commit=False)
-            new_post.author = request.user
-            new_post.save()
-            return redirect('community')
-    else:
-        form = CommunityPostForm()
-    return render(request, 'community.html', {'form': form})
 
 @login_required
 def edit_post_view(request:HttpRequest, post_id:int)->HttpResponse:
@@ -274,6 +254,8 @@ def logout_view(request:HttpRequest)->HttpResponse:
 #         'query': query,
 #     }
 #     return render(request, 'teacher_dashboard.html', context)
+
+
 
 # def download_pdf(request):
 #     # Fetch data

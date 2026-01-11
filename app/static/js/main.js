@@ -1,15 +1,15 @@
+let allPosts = document.getElementById('allposts');
+  // document.addEventListener("DOMContentLoaded", () => {
+  //   const btn = document.querySelector(".pc-nav__toggle");
+  //   const menu = document.querySelector("#pcNav");
+  //   if (!btn || !menu) return;
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const btn = document.querySelector(".pc-nav__toggle");
-//   const menu = document.querySelector("#pcNav");
-//   if (!btn || !menu) return;
-
-//   btn.addEventListener("click", () => {
-//     menu.classList.toggle("show");
-//     const expanded = btn.getAttribute("aria-expanded") === "true";
-//     btn.setAttribute("aria-expanded", (!expanded).toString());
-//   });
-// });
+  //   btn.addEventListener("click", () => {
+  //     menu.classList.toggle("show");
+  //     const expanded = btn.getAttribute("aria-expanded") === "true";
+  //     btn.setAttribute("aria-expanded", (!expanded).toString());
+  //   });
+  // });
 
 
   // Get the modal element
@@ -37,6 +37,7 @@ window.onclick = function(event) {
 }
 
 
+<<<<<<< HEAD
 // document.addEventListener("DOMContentLoaded", function () {
 //     const nav = document.querySelector(".navbar-wrapper .nav-bar");
 
@@ -59,3 +60,17 @@ window.onclick = function(event) {
 
 
 
+=======
+
+document.addEventListener("DOMContentLoaded", function() {
+
+});
+
+function searchPosts() {
+  document.getElementById("searchbtn").addEventListener("click", function() {
+      if (allPosts.style.display = 'block'){  
+      allPosts.style.display = 'none';
+      }
+    });
+}
+>>>>>>> 35d3b73ce8a220d5943a39cdbe485ebb886f5953
