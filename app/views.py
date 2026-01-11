@@ -151,6 +151,12 @@ def delete_vaccination_view(request:HttpRequest,vaccination_id:int)-> HttpRespon
 @login_required
 def community_view(request:HttpRequest)->HttpResponse:
     posts = CommunityPost.objects.all().order_by('-created_at')
+    query = request.GET.get('q') 
+    results = CommunityPost.objects.all()
+    if query:
+        results = results.filter(Q(title__icontains=query))
+    else:
+        results = CommunityPost.objects.none()
     if request.method == 'POST':
         form = CommunityPostForm(request.POST)
         if form.is_valid():
@@ -160,7 +166,7 @@ def community_view(request:HttpRequest)->HttpResponse:
             return redirect('community')
     else:
         form = CommunityPostForm()
-    return render(request, 'community.html', {'posts':posts, 'form':form})
+    return render(request, 'community.html', {'posts':posts, 'form':form, 'results':results, 'query':query})
 
 
 @login_required
@@ -223,6 +229,8 @@ def logout_view(request:HttpRequest)->HttpResponse:
 #         'query': query,
 #     }
 #     return render(request, 'teacher_dashboard.html', context)
+
+
 
 # def download_pdf(request):
 #     # Fetch data

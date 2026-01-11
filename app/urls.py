@@ -41,7 +41,6 @@ urlpatterns = [
 
 
     # path('download-pdf/', views.download_pdf, name='download_pdf')
-    # path('search/', search_view, name='search'),
     path('pets/<int:pet_id>/print/', pet_print_view, name='pet_print'),
     
     path('error403/', error_view, name='403')
