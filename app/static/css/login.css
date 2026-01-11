@@ -53,13 +53,11 @@
     align-items: center;
     justify-content: center;
     gap: .5em;
-    background-color: lightcyan;
+    background-color: rgba(0, 33, 250, 0.624);
     border-radius: 4px;
     padding: 1em 1em;
     border: #000 solid 1px;
     min-height: 1rem;
-
-
 }
 
 .login-wrapper .input-icon {
