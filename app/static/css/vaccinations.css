@@ -11,7 +11,23 @@
 
 
 
-/* NOTIFCATION VACCINATIONS */
+/* NOTE INTRO MSG */
+.vaccination-wrapper .vaccination-intro-message {
+    line-height: 1rem;
+}
+
+
+.vaccination-wrapper .vaccination-intro-message h1{
+    font-size: 38px;
+}
+
+.vaccination-wrapper .vaccination-intro-message p {
+    font-size: 18px;
+}
+
+
+
+/* NOTE NOTIFICATION VACCINATIONS */
 .vaccination-wrapper .upcoming-vaccinations-card {
     border: aqua 1px solid;
     padding: 2%;
@@ -21,7 +37,7 @@
 .vaccination-wrapper .vaccination-tags {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px
+    gap: 5rem;
 }
 
 
