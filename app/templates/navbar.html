@@ -2,11 +2,16 @@
 {% load static %}
 {% block navbar %}
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="navbar-wrapper">
 
+    {%if user.is_authenticated%}
     <nav class="nav-bar">
-        <a href="{% url 'landing' %}" style="margin-right:auto;" >PawCare</a>
+        <a href="{% url 'landing' %}" style="margin-right:auto;">
+            <img  class="icon" src="{% static 'images/paws-icon.png' %}" alt="Logo">PawCare
+        </a>
+
         <div style="display:flex; gap:10px;">
             <a href="{% url 'pets' %}" class="active">My Pets</a>
             <div class="dropdown">
@@ -18,12 +23,33 @@
             </div>
             <a href="{% url 'community' %}">Community</a>
         </div>
+        
         <a href="{% url 'logout' %}" style="margin-left:auto; color: red;">Logout</a>
-        <a href="{% url 'login' %}">Log in</a>
-        <a href="{% url 'register' %}">Sign up</a>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
     </nav>
 
-</div>
+    {%else%}
 
+    <nav class="nav-bar">
+        <a href="{% url 'landing' %}" style="margin-right:auto;" >PawCare</a>
+        <div style="display:flex; gap:10px;">
+            <a href="{% url 'login' %}">Log in</a>
+            <a href="{% url 'register' %}">Sign up</a>  
+        </div>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+    </nav>
+    {%endif%}
+
+</div>
 
 {% endblock navbar %}

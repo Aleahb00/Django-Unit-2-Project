@@ -1,7 +1,12 @@
 /* Navbar container */
+.navbar-wrapper .icon{
+    width: 30px;
+    height: 30px;
+}
+
 .navbar-wrapper .nav-bar {
     position: fixed;
-    padding: 16px;
+    padding: 10px;
     top: 0;
     z-index: 1000;
     background: rgba(255, 255, 255, .82);
@@ -11,6 +16,9 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 0 1rem 0;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 
 }
 .navbar-wrapper .nav-bar a {
@@ -60,6 +68,10 @@
     display: none;
     position: absolute;
     z-index: 1;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 10px;
 }
 /* Links inside the dropdown */
 .navbar-wrapper .dropdown-content a {
@@ -77,4 +89,60 @@
 /* Show the dropdown menu on hover */
 .navbar-wrapper .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.navbar-wrapper .nav-bar a:active,
+.navbar-wrapper .nav-bar .dropdown .dropbtn:active {
+    background-color: #1a04aa;
+    color: white;
+}
+
+/* HAMBURGER BTN */
+.navbar-wrapper .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.navbar-wrapper .hamburger div {
+    width: 100%;
+    height: 3px;
+    background-color: #111827;
+    border-radius: 2px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    /* Show hamburger */
+    .navbar-wrapper .hamburger {
+        display: flex;
+    }
+
+    /* Hide everything except hamburger */
+    .navbar-wrapper .nav-bar > *:not(.hamburger) {
+        display: none;
+        width: 100%;
+        text-align: center;
+        margin: 6px 0;
+    }
+
+    /* Show everything when open */
+    .navbar-wrapper .nav-bar.open > *:not(.hamburger) {
+        display: block;
+    }
+
+    /* Stack vertically */
+    .navbar-wrapper .nav-bar {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .navbar-wrapper .dropdown-content {
+        width: 100%;
+        position: relative !important;
+    }
 }

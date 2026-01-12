@@ -9,16 +9,6 @@
     line-height: 1.05;
     letter-spacing: -0.02rem;
     font-weight: 900;
-
-    display: inline-block;
-     /* Monospace font makes steps look even */
-    overflow: hidden; /* Hide the text as it is 'typed' */
-    border-right: .15em solid orange; /* The "cursor" */
-    width: 0; /* Start with a width of 0 */
-    /* Combine the typing and blinking animations */
-    animation: 
-    typing 4s steps(40, end) forwards,
-    blink .75s step-end infinite;
 }
 
 .landing-section1{
@@ -169,7 +159,7 @@
     color: #333;
 }
 
-.landing-section4 button{
+.landing-section4 a{
     display: inline-block;
     padding: 1.5rem 1.5rem;
     border-radius: .5rem;
@@ -184,7 +174,7 @@
     color: #000000;
 }
 
-.landing-section4 button:hover{
+.landing-section4 a:hover{
     text-decoration: underline;
     filter: brightness(2);
 }
@@ -260,7 +250,7 @@
 
 
 /* Container styles for centering and ensuring the cursor doesn't span the page */
-.container {
+.container-for-typing-animation {
   display: inline-block;
   font-family: 'Courier New', monospace; /* Monospace font makes steps look even */
   overflow: hidden; /* Hide the text as it is 'typed' */
