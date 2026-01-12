@@ -28,8 +28,8 @@
                 <div class="card-content">
                     <div class="vaccination-tags">
                         <div class="vaccination-tag">
-                            {% if vaccination %}
-                                {% for v in vaccination %}
+                            {% if vaccinations %}
+                                {% for v in vaccinations %}
                                     {% if v.next_due_date|days_until <= 14 %}
                                         <div class="vaccination-tag">
                                             <span class="pet-image">{{ v.pet.image }}</span>
@@ -63,7 +63,7 @@
                                 <p class="pet-name">{{vaccination.pet.name}}</p>
                             </div>
                             <div class="due-info">
-                                <span class="days-until">Due in: {{ vaccination.next_due_date|days_until }}</span>
+                                <span class="days-until">Due in: {{ vaccination.next_due_date|days_until }} days</span>
                             </div>
                         </div>
                         <div class="card-footer">
