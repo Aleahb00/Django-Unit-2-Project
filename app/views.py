@@ -46,12 +46,20 @@ def login_view(request:HttpRequest)->HttpResponse:
     return render(request, 'login.html', {'form':form})
 
 
+# VIEWS FOR ALL PET ACTIONS
 @login_required
-def pets_view(request:HttpRequest)->HttpResponse:
+def pets_view(request: HttpRequest) -> HttpResponse:
     pets = Pet.objects.filter(owner=request.user)
     pet_id = request.GET.get("pet")
-    form = PetForm()
+    selected_pet = None
+    form = PetForm()  
 
+    if pet_id:
+        selected_pet = pets.filter(id=pet_id).first()
+        if selected_pet:
+            form = PetForm(instance=selected_pet)  # pre-filled form
+
+    # adding a new pet
     if request.method == 'POST':
         form = PetForm(request.POST)
         if form.is_valid():
@@ -60,18 +68,8 @@ def pets_view(request:HttpRequest)->HttpResponse:
             new_pet.save()
             return redirect('pets')
 
-    selected_pet = None
-    if pet_id:
-        selected_pet = pets.filter(id=pet_id).first()
+    return render(request, 'pets.html', {'pets': pets,'form': form,'selected_pet': selected_pet})
 
-    return render(request, 'pets.html', {
-        'pets': pets,
-        'form': form,
-        'selected_pet': selected_pet
-    })
-
-
-# VIEWS FOR ALL PET ACTIONS
 def add_pet_view(request:HttpRequest)->HttpResponse:
     if request.method == 'POST':
         form = PetForm(request.POST)
@@ -85,13 +83,15 @@ def add_pet_view(request:HttpRequest)->HttpResponse:
 @login_required
 def edit_pet_view(request:HttpRequest, pet_id:int)->HttpResponse:
     pet = get_object_or_404(Pet, id=pet_id)
+
     if not pet.owner == request.user:
         raise PermissionDenied
+
     form = PetForm(request.POST or None, instance=pet)
     if request.method == "POST" and form.is_valid():
         form.save()
         return redirect("pets")
-    return render(request, "edit_pet.html", {"form": form})
+    return redirect('pets')
 
 @login_required
 def delete_pet_view(request: HttpRequest, pet_id) -> HttpResponse:

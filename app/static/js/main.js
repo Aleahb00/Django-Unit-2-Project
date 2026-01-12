@@ -11,11 +11,9 @@
   // });
 
 
-  // Get the modal element
+// FORM MODAL JS
 var modal = document.getElementById("formModal");
-// Get the button that opens the modal
 var btn = document.getElementById("openFormButton");
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal
@@ -34,6 +32,31 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// EDIT MODAL JS
+var editModal = document.getElementById("editFormModal");
+var editBtn = document.getElementById("editButton"); 
+var editSpan = editModal.getElementsByClassName("close")[0];
+
+editBtn.onclick = function() {
+  editModal.style.display = "block";
+}
+
+editSpan.onclick = function() {
+  editModal.style.display = "none";
+}
+
+// HAMBURGER MENU JS
+document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.querySelector(".navbar-wrapper .hamburger");
+    const navBar = document.querySelector(".navbar-wrapper .nav-bar");
+
+    hamburger.addEventListener("click", () => {
+        navBar.classList.toggle("open");
+    });
+});
+
+
 
 
 // document.addEventListener("DOMContentLoaded", function () {
