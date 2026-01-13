@@ -63,6 +63,10 @@ label {
     max-height: 10rem;
     border: #000 .5px solid;
     margin-bottom: 2rem;
+    font-size: 16px;
+    font-family: "Overpass", sans-serif;
+
+
 }
 
 .form .input::-moz-placeholder {
