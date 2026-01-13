@@ -11,6 +11,7 @@
 .register-wrapper .image-section-content {
     width: 60%;
     margin: auto;
+    top: 0;
 }
 
 
@@ -142,11 +143,21 @@
     align-items: center;
     justify-content: center;
     gap: .5em;
-    background-color: lightcyan;
     border-radius: 4px;
-    padding: 1em 8em;
+    padding: 1em 1em;
     border: #000 solid 1px;
     min-height: 1rem;
+    border: #000000 solid 1px;
+    box-shadow: 0 0 10px #000fe7a2;
+}
+
+.register-wrapper .form-section label {
+    line-height: 1;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 22px;
+    color: #000;
 }
 
 
@@ -162,7 +173,7 @@
     border: none;
     outline: none;
     width: 100%;
-    color: #d3d3d3;
+    color: #010000;
 }
 
 
@@ -189,8 +200,8 @@
     font-size: 1em;
     text-transform: uppercase;
     padding: 1rem 5em;
-    background-color: lightcyan;
-    color: #5e6681;
+    background-image: linear-gradient(to right, #0095ffa8, #000fe7);
+    color: #080e22;
     box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
     transition: all .3s ease-in-out;
     align-self: center;

@@ -166,7 +166,6 @@ def vaccinations_view(request:HttpRequest)-> HttpResponse:
         owner=request.user)
     return render(request, 'vaccinations.html', {'vaccinations':vaccinations, 'form':form})
 
-
 @login_required
 def edit_vaccination_view(request:HttpRequest,vaccination_id:int)-> HttpResponse:
     vaccination = get_object_or_404(Vaccination, id=vaccination_id)
