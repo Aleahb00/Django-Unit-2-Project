@@ -170,6 +170,8 @@ def edit_vaccination_view(request:HttpRequest,vaccination_id:int)-> HttpResponse
         raise PermissionDenied
         
     form = VaccinationForm(request.POST or None, instance=vaccination)
+    form.fields["pet"].queryset = Pet.objects.filter(owner=request.user)
+
     if request.method == "POST" and form.is_valid():
         form.save()
         return redirect("vaccinations")

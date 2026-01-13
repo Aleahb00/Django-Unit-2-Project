@@ -73,6 +73,7 @@
                                 🗑
                             </button>
                         </form>
+
                         <div class="pets-wrapper">
                             <button id="editButton" class="edit-btn">✎</button>
                             <div id="editFormModal" class="modal" enctype="multipart/form-data">
@@ -87,6 +88,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        <a href="{% url 'vaccinations' %}">View {{selected_pet.name}}'s health records.</a>
                 </div>
                 {% else %}
                     <div class="no-pet-selected">
