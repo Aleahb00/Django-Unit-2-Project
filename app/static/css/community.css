@@ -266,6 +266,10 @@
     border-radius: 20px;
 }
 
+a svg {
+    color: #000;
+}
+
 
 /* TODO CHANGE STYLE */
 .post-card:hover {
