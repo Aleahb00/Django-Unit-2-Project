@@ -97,22 +97,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div>                    
-                    <button id="editButton" class="edit-btn">✎</button>
-                    <div id="editFormModal" class="modal" enctype="multipart/form-data">
-                        <div class="modal-content">
-                            <span class="close" onclick="closeEditModal()">&times;</span>
-                            <h2>Edit Vaccinations</h2>
-                            <form method="POST" action="{% url 'edit-vaccination' vaccination.id %}">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                <button class="edit-form-btn" type="submit">Save Changes</button>
-                            </form>
-                        </div>
-                    </div>
-                    
+                    <a href="{% url 'edit-vaccination' vaccination.id %}" class="edit-button">Edit</a>
                 </div>
             {%endfor%}
 
