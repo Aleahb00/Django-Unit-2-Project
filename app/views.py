@@ -169,11 +169,13 @@ def edit_vaccination_view(request:HttpRequest,vaccination_id:int)-> HttpResponse
     if not vaccination.pet.owner == request.user:
         raise PermissionDenied
         
-    form = VaccinationForm(request.POST or None, instance=vaccination)
-
-    if request.method == "POST" and form.is_valid():
-        form.save()
-        return redirect("vaccinations")
+    if request.method == "POST":
+        form = VaccinationForm(request.POST, instance=vaccination)
+        if form.is_valid():
+            form.save()  
+            return redirect("vaccinations")
+    else:
+        form = VaccinationForm(instance=vaccination)
     return render(request, "edit_Vaccination.html", {"form": form})
 
 
