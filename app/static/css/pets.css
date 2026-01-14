@@ -191,6 +191,23 @@
     box-shadow: 0 1px 3px rgba(0,0,0,.05);
 }
 
+.pet-card a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pet-thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover; 
+    border-radius: 50%; 
+}
+
+.pet-info h3, .pet-info p {
+    margin: 0;
+}
+
 .pet-info-card a{
     color: inherit;
     gap: 1rem;
@@ -211,6 +228,15 @@
     /* Increase the shadow for depth */
     box-shadow: 0 0 25px rgba(16, 26, 208, 0.174);
 }
+
+.pet-card img, .selected-pet img {
+    width: 60px;      /* fixed width */
+    height: 60px;     /* fixed height */
+    object-fit: cover; /* crops to fill the box without stretching */
+    border-radius: 8px; /* optional rounded corners */
+    margin-right: 10px; /* spacing if next to text */
+}
+
 
 .allergy-section {
     border: solid 1px #2563f5;
