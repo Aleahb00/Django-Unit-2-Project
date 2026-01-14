@@ -29,7 +29,7 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
 
-                    <h2 class='heading'>Form Title</h2>
+                    <h2 class='heading'>Add New Vet Visit!</h2>
                     <hr></hr>
                     <form method="POST" class='form'>
                     {% csrf_token %}
@@ -58,7 +58,6 @@
                                 {% for v in vaccinations %}
                                     {% if v.next_due_date|days_until <= 14 %}
                                         <div class="vaccination-tag">
-                                            <span class="pet-image">{{ v.pet.image }}</span>
                                             <span class="tag-text">{{ v.pet.name }} - {{ v.vaccine_name }}</span>
                                             <span class="due-badge">
                                                 {{ v.next_due_date|days_until }} days left

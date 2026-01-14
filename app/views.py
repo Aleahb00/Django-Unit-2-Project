@@ -105,8 +105,9 @@ def delete_pet_view(request: HttpRequest, pet_id) -> HttpResponse:
 
 @login_required
 def pet_print_view(request, pet_id):
-    pet = Pet.objects.filter(id=pet_id).delete()
+    pet = get_object_or_404(Pet, id=pet_id)
     return render(request, 'pets.html', {'pet': pet})
+
 
 
 # NOTE VET VISIT VIEWS
@@ -168,11 +169,13 @@ def edit_vaccination_view(request:HttpRequest,vaccination_id:int)-> HttpResponse
     if not vaccination.pet.owner == request.user:
         raise PermissionDenied
         
-    form = VaccinationForm(request.POST or None, instance=vaccination)
-
-    if request.method == "POST" and form.is_valid():
-        form.save()
-        return redirect("vaccinations")
+    if request.method == "POST":
+        form = VaccinationForm(request.POST, instance=vaccination)
+        if form.is_valid():
+            form.save()  
+            return redirect("vaccinations")
+    else:
+        form = VaccinationForm(instance=vaccination)
     return render(request, "edit_Vaccination.html", {"form": form})
 
 
