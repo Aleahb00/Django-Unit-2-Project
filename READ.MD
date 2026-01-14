@@ -1,13 +1,9 @@
 <div align="center">
-  <img style="width: 30%;" src="WrapItUp - group project.png" alt="project image">  
+  <img style="width: 30%;" src="app/static/images/paws-icon.png" alt="project image">  
   
   # **PawCare**
+  "Pawcare" is a program that helps the user stay organized with their pet's information. Allowing them to manage their pet's Veterinary Visits and even vaccinations. If they are leaving their pet with a petsitter the user can print out their pet's information for the sitter to know all the care instructions and routines. 
 
-  ## **DESCRIPTION**
-  "Pawcare" is a program that helps the user stay organized with their information.
-  COLOR PALETTE            |  DEMO
-:-------------------------:|:-------------------------:
-<img style="width: 50px; height:50px" src="https:/imgfreepikcomfree-vectorset-abstract-color-palette-banners-presentation-design_1017-45072.jpg?semt=ais_hybrid&w=740q=80" alt="Color Palette">  
 </div>
 
 ## **KEY FEATURES:**
@@ -32,10 +28,11 @@
 ## **HOW TO USE (Visual Studio Code)**
   1. Install Python to your computer.
   2. Download [Visual Studio Code](https://www.youtube.com/watch?v=HxJXKFxhah4)
-  3.  Install the extentions "Python" by Microsoft and "SQLite" by alexcvzz
-  4.  Clone this repository
-  5.  Open the project
-  6.  Download Pillow [pip3 install pillow]
-  7.  Make migrations and migrate [python3 manage.py makemrations] [python3 manage.py migrate]
-  8.  Start running the Server [python3 runserver]
-  10. Open the main.py file and run the program in the terminal and you are set!
+  3. Install the extentions "Python" by Microsoft and "SQLite" by alexcvzz
+  4. Clone this repository
+  5. Open the project
+  6. Install Pillow [pip install pillow]
+  7. Install Widget Tweak [pip install django-widget-tweaks]
+  8. Install Image Field [pip install django-imagefield]
+  9. Make migrations and migrate [python3 manage.py makemrations] [python3 manage.py migrate]
+  10.Start running the Server [python3 runserver] and you are all set!
