@@ -31,7 +31,7 @@
 
                     <h2 class='heading'>Add Pet!</h2>
                     <hr></hr>
-                    <form method="POST" class='form'>
+                    <form method="POST" class='form' enctype="multipart/form-data" >
                     {% csrf_token %}
                     {{field.label_tag}}
                     {{ form.as_p }}
@@ -47,7 +47,12 @@
             <div class="pet-left-side">
                 {% for p in pets %}
                     <div class="pet-card">
-                        <a style="text-decoration: none; color: black;" href="?pet={{ p.id }}">
+                            <a href="?pet={{ p.id }}" style="text-decoration: none; color: black; display: flex; align-items: center;">
+                            {% if p.image %}
+                                <img src="{{ p.image.url }}" alt="{{ p.name }}" class="pet-thumb">
+                            {% else %}
+                                <img src="{% static 'images/default-pet.png' %}" alt="No image" class="pet-thumb">
+                            {% endif %}
                             <h3>{{ p.name }}</h3>
                             <p>{{ p.species }} • {{ p.age }} yrs</p>
                         </a>
@@ -58,9 +63,7 @@
             <div class="pet-right-side">
                 <div class="pet-info-card">
                     {% if selected_pet %}
-                        {% if selected_pet.image %}
-                        <img src="{{ selected_pet.image.url }}" alt="{{ selected_pet.name }}" width="200">
-                        {% endif %}
+                        <p>{{selected_pet.iamge}}</p>
                         <h1>{{ selected_pet.name }}</h3>
 
                         <p style="font-size: 1.2rem; color: gray;">{{ selected_pet.species }}  • {{selected_pet.breed}} • {{ selected_pet.age }} yrs</p>

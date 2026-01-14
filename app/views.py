@@ -62,7 +62,7 @@ def pets_view(request: HttpRequest) -> HttpResponse:
 
     # adding a new pet
     if request.method == 'POST':
-        form = PetForm(request.POST)
+        form = PetForm(request.POST, request.FILES)
         if form.is_valid():
             new_pet = form.save(commit=False)
             new_pet.owner = request.user
